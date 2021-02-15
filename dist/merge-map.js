@@ -96,7 +96,10 @@ function eachInputGeneratedRange(map, callback) {
     }
 }
 function buildMappingData(map) {
-    const consumer = new sourceMap.SourceMapConsumer(Object.assign({}, map, { sourceRoot: null }));
+    const consumer = new sourceMap.SourceMapConsumer({
+        ...map,
+        sourceRoot: null,
+    });
     const sources = new Map();
     const mappings = new Map();
     let last = null;
